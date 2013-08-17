@@ -1,0 +1,344 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 600" style="background:black" onload="sw.init();init()">
+	<defs>
+	<script xlink:href="../res/2.0/scripts/utils/simple_drag.js"/>
+  <script xlink:href="../res/2.0/scripts/yui/yahoo-dom-event/yahoo-dom-event.js" />
+	<script xlink:href="../res/2.0/scripts/yui/animation/animation-min.js" />
+	
+	<script xlink:href="../res/2.0/scripts/dom-utils.js" />
+	<script xlink:href="../res/2.0/scripts/utils/ez-transform.js" />
+	<script xlink:href="../res/2.0/scripts/animation/animate.js" />
+	<script xlink:href="../res/2.0/scripts/widgets/sensor.js" />
+	<script xlink:href="../res/2.0/scripts/widgets/scroller.js" />
+
+	<g id="templates" style="fill:#161413; stroke:#0c1007; stroke-linecap:round; stroke-linejoin:round;" >
+   <!-- Based on http://therantsandraves.com/?p=607 -->
+   <symbol id="fluffybeard" class="template" viewBox="0 -10 231 120">
+	   <path d="M0.49 32.319 C0.49 32.319 1.471 52.888 21.547 58.273 C21.547 58.273 16.649 72.963 28.402 80.798 C41.349 89.43 63.168 85.207 69.534 77.371 C69.534 77.371 88.638 101.108 115.075 100.385 C150.824 99.407 163.555 78.35 163.555 78.35 C163.555 78.35 192.447 91.083 202.729 80.309 C213.013 69.535 208.606 58.273 208.606 58.273 C208.606 58.273 231.131 54.354 230.642 31.339 C230.153 8.325 209.095 1.958 209.095 1.958 C209.095 1.958 205.669 41.623 117.035 41.623 C28.402 41.623 25.954 2.449 25.954 2.449 C25.954 2.449 0 0 0.49 32.319 Z"  />
+   </symbol>
+   <symbol id="muttonchops" class="template" viewBox="0 -20 160 280">
+		<path d="M0 9.213 C0 0 21.139 8.672 21.139 8.672 C21.139 8.672 23.306 154.469 68.833 162.055 C78.397 163.65 62.058 125.201 69.105 110.567 C72.897 102.693 76.422 98.371 84.552 96.203 C92.682 94.035 141.461 92.68 147.965 98.643 C154.469 104.605 153.386 108.94 147.965 113.275 C142.544 117.612 110.024 111.65 101.354 117.07 C96.621 120.029 91.054 123.573 88.887 131.162 C86.719 138.75 90.513 196.744 88.345 207.041 C86.147 217.488 86.176 230.89 72.627 234.142 C59.077 237.394 0 190.251 0 9.213 Z" transform="translate(-80 0)"/>
+		<path d="M154.466 9.212 C154.466 0 133.326 8.67 133.326 8.67 C133.326 8.67 131.166 154.468 85.636 162.054 C76.076 163.648 92.416 125.2 85.366 110.566 C81.576 102.691 78.046 98.37 69.916 96.203 C61.786 94.035 13.006 92.679 6.505 98.641 C0 104.603 1.083 108.939 6.505 113.275 C11.926 117.611 44.446 111.649 53.116 117.071 C57.846 120.029 63.416 123.572 65.586 131.161 C67.746 138.75 63.956 196.744 66.126 207.041 C68.326 217.488 68.296 230.888 81.846 234.14 C95.396 237.392 154.466 190.25 154.466 9.212 Z" transform="translate(80 0)" />
+   </symbol>
+   <symbol viewBox="0 -10 100 180" id="fumanchu" class="template">
+		<path d="M64.072 51.344 C64.072 51.344 92.954 53.445 87.704 29.287 C81.341 0 64.072 28.501 55.668 29.025 C47.265 29.55 0 21.411 3.151 58.172 C6.302 94.933 13.133 147.974 12.08 161.628 C12.08 161.628 24.682 150.076 25.208 135.896 C25.734 121.716 25.266 97.195 24.685 84.429 C24.158 72.878 23.552 51.344 39.387 51.344 C50.942 51.344 64.072 51.344 64.072 51.344 Z" transform="translate(-50 0)"/>
+		<path d="M28.882 51.344 C28.882 51.344 0 53.445 5.25 29.286 C11.613 0 28.882 28.5 37.286 29.025 C45.689 29.55 92.954 21.41 89.804 58.172 C86.652 94.932 79.821 147.972 80.874 161.629 C80.874 161.629 68.272 150.075 67.747 135.895 C67.221 121.717 67.688 97.194 68.269 84.43 C68.796 72.877 69.402 51.344 53.567 51.344 C42.012 51.344 28.882 51.344 28.882 51.344 Z" transform="translate(50 0)"/>
+   </symbol>
+   <symbol viewBox="0 -10 202 140" id="zappa" class="template">
+		<path d="M2.2295 83.972 C0 106.69 10.6914 128.073 23.166 98.226 C39.25 59.74 52.5703 48.777 99.7888 48.777 C147.007 48.777 169.753 60.87 182.647 99.561 C191.109 124.954 204.646 113.819 204.03 81.745 C203.899 74.929 196.008 6.456 101.569 5.567 C101.569 5.567 10.4668 0 2.2295 83.972 Z"/>
+		<path d="M0 0 L0 32.522 C0 32.522 22.497 55.908 45.885 32.522 L45.885 1.337 C45.885 1.337 25.393 23.61 0 0 Z" transform="translate(78 68)" />
+   </symbol>
+   <symbol viewBox="-10 -10 220 100" id="fatmustache" class="template">
+   	<path  d="M1.014 61.835 C1.014 61.835 0 0 98.836 0 C197.674 0 197.164 59.807 197.674 63.356 C197.674 63.356 97.824 89.713 1.014 61.835 Z"/>
+   </symbol>
+   <symbol viewBox="-40 -30 320 180" id="handlebar" class="template">
+		<path d="M25.276 9.1904 C25.276 9.1904 37.682 18.3818 53.308 34.4666 C70.087 51.7396 114.891 103.401 163.145 104.779 C211.4 106.157 213.238 63.4176 226.564 63.4176 C239.89 63.4176 238.972 72.6116 238.972 79.0436 C238.972 85.4766 222.428 124.541 170.038 124.541 C117.648 124.541 79.965 79.9626 64.34 61.5786 C48.713 43.1966 26.652 7.3505 0 5.9726 C0 5.9726 12.405 0 25.276 9.1904 Z" transform="translate(-130 0)" />
+			<path d="M214.61 9.1904 C214.61 9.1904 202.21 18.3818 186.58 34.4671 C169.8 51.7401 125 103.4 76.745 104.779 C28.491 106.157 26.652 63.4181 13.326 63.4181 C0 63.4181 0.917 72.6111 0.917 79.0441 C0.917 85.4771 17.461 124.541 69.852 124.541 C122.24 124.541 159.92 79.9631 175.55 61.5791 C191.18 43.1971 213.24 7.3515 239.89 5.9726 C239.89 5.9726 227.48 0 214.61 9.1904 Z" transform="translate(130 0)" />
+   </symbol>
+   <symbol viewBox="-120 25 460 87" id="handlebarCurly" class="template" >
+   	<path d="M198.829 41.2987 L197.968 68.8307 C197.968 68.8307 144.437 77.8037 105.908 98.0837 C56.8661 123.896 0 117.012 0.9414 55.9257 C1.8017 0 62.0281 32.6944 58.5861 51.6227 C58.5861 51.6227 51.7031 39.5777 42.2391 34.4151 C32.7751 29.253 8.6846 23.2305 8.6846 55.9257 C8.6846 88.6197 39.6581 115.292 76.6551 94.6417 C113.651 73.9927 163.553 43.0187 198.829 41.2987 Z" transform="translate(-100 0)" />
+   	<path d="M0 41.2983 L0.86 68.8303 C0.86 68.8303 54.393 77.8043 92.921 98.0843 C141.963 123.895 198.829 117.012 197.889 55.9253 C197.027 0 136.801 32.6943 140.242 51.6233 C140.242 51.6233 147.125 39.5773 156.59 34.415 C166.054 29.2529 190.145 23.2305 190.145 55.9253 C190.145 88.6193 159.171 115.291 122.174 94.6423 C85.178 73.9933 35.275 43.0193 0 41.2983 Z" transform="translate(120 0)" />
+   </symbol>
+   <symbol viewBox="-5 -10 230 100" id="handlebarPointy" class="template">
+   	<path d="M0 83.294 C0 83.294 52.903 18.009 96.801 0 C96.801 0 99.052 20.261 113.685 20.261 C127.191 20.261 130.568 7.879 129.443 0 C129.443 0 168.838 18.009 221.741 78.791 C221.741 78.791 155.332 27.014 135.07 42.772 C114.811 58.53 113.685 61.907 113.685 61.907 L92.298 42.772 C92.298 42.772 81.042 19.135 0 83.294 Z"/>
+   </symbol>
+   <symbol viewBox="0 10 153 174" id="handlebarThick" class="template" >
+		<path d="M104.873 93.672 C151.392 89.265 154.764 65.164 152.728 44.799 C151.306 30.581 114.037 0 59.055 54.982 C4.073 109.963 0 147.636 0 177.164 C0 177.164 8.146 102.836 104.873 93.672 Z" transform="translate(-78 0)" />
+		<path d="M49.891 93.672 C3.373 89.265 0 65.164 2.037 44.799 C3.458 30.581 40.727 0 95.709 54.982 C150.691 109.963 154.764 147.636 154.764 177.164 C154.764 177.164 146.619 102.836 49.891 93.672 Z" transform="translate(78 0)" />
+   </symbol>   
+   <symbol viewBox="1 -10 291 150" id="zappaesce" class="template">
+		<path d="M0.945 58.579 C0.945 58.579 0 1.89 146.445 0.946 C292.887 0 291.947 57.633 291.947 57.633 L0.945 58.579 Z"/>
+		<path d="M57.437 0 C57.437 0 57.625 19.94 28.812 20.272 C0 20.6 0.187 0.328 0.187 0.328 L57.437 0 Z" transform="translate(115, 100)" />
+   </symbol> 
+   <symbol viewBox="-10 -15 240 100" id="handlebarWavy" class="template">
+   	<path d="M112.858 47.019 C134.016 47.019 148.129 70.983 176.332 71.703 C222.175 72.878 215.122 34.088 213.947 0 C213.947 0 202.193 34.088 178.684 34.088 C149.297 34.088 156.35 2.351 114.034 2.351 L108.141 2.351 C65.825 2.351 72.877 34.088 43.491 34.088 C19.982 34.088 8.228 0 8.228 0 C7.053 34.088 0 72.878 45.842 71.703 C74.045 70.983 88.159 47.019 109.317 47.019 L112.858 47.019 Z"/>
+  	</symbol>
+	</g>
+	<style>
+		.pitem { fill: white; stroke: black; fill-opacity: 0.5 }
+		.button:hover { stroke: cyan; stroke-width: 2px }
+		.button:active { stroke: black; fill-opacity: 0.3 }
+		.item { fill: black; fill-opacity: 1}
+		.active { stroke: hsl(210, 88%, 90%); stroke-width: 1px; stroke-dasharray: 2 }
+    .btext { fill: white; stroke: none; font: 7px sans-serif; text-anchor: middle; }
+		symbol path { vector-effect: non-scaling-stroke }
+	</style>
+	
+	<script><![CDATA[
+	function $(id) { return document.getElementById(id); }
+	function init()	{
+		var b = new BeardEnhancer("palette", "area");
+		b.init();
+		
+		var paletteSensor = new sw.widgets.Sensor("activearea");
+		document.addEventListener("mousemove", function (evt) {
+            paletteSensor.setControlPoint({
+                x: evt.clientX,
+                y: evt.clientY
+            });
+        }, false);
+        
+    var showPaletteAnim =
+        new sw.animation.Animate("palette", {
+            txf: {
+                to: {ty: -100},
+                template: "translate(0,#ty)"
+            }
+        },
+        0.3, yui.util.Easing.easeOut);
+
+    var hidePaletteAnim =
+        new sw.animation.Animate("palette", {
+            txf: {
+                to: {ty: 0},
+                template: "translate(0,#ty)"
+            }
+        },
+        0.3, yui.util.Easing.easeOut);
+    
+    paletteSensor.events.onEnter.subscribe(function () {
+        hidePaletteAnim.stop();
+        showPaletteAnim.animate();
+    });
+
+    paletteSensor.events.onLeave.subscribe(function () {
+        showPaletteAnim.stop();
+        hidePaletteAnim.animate();
+    });
+	}
+
+	window.gfocused = null;
+
+	function BeardEnhancer(container, rect) {
+		var num_lines = 2;
+		var parser = new DOMParser();
+		var container = $(container);
+		var area = $(rect);
+		var focused = null;
+		var saveEnabled = false;
+		
+		var getTemplates = function() {
+			var ctx = $('templates');
+			return ctx.getElementsByClassName("template");
+		};
+		
+		var cloneElm = 	function(e) {
+			var use = null;
+			if(classOf(e.target) == "SVGElementInstance") {
+				use = e.target.correspondingUseElement;
+			} else if(classOf(e.target) == "SVGUseElement") {
+				// this fixes it for firefox, but is not according to spec
+				use = e.target;
+			}
+			
+			var clone = use.cloneNode(false);
+			var point = document.documentElement.createSVGPoint();
+			point.x = e.clientX;
+			point.y = e.clientY;
+			var uu = point.matrixTransform(document.documentElement.getScreenCTM().inverse()); 
+	
+			// center around cursor
+			clone.x.baseVal.value = -clone.width.baseVal.value / 2;
+			clone.y.baseVal.value = -clone.height.baseVal.value / 2;
+			
+			// translate
+			clone.setAttribute("transform", "translate(" + uu.x + " " + uu.y +")");
+	
+			return document.getElementById('decorations').appendChild(clone);
+		};
+		
+		return {
+			handleEvent : function(e) {
+				switch(e.type) {
+					case "click":
+						if(e.target === $("image"))
+						{
+							if(window.gfocused)
+							{
+								window.gfocused.setActive(false);
+								window.gfocused = null;
+							}
+						}
+						break;
+					case "mousedown":
+						{
+							var elm = cloneElm(e);
+							var new_focused = new DragObject(elm, this);
+
+							if(window.gfocused)
+								window.gfocused.setActive(false);
+							
+							new_focused.setActive(true);
+							window.gfocused = new_focused;
+						}
+						break;
+					case "keypress":
+						switch(e.keyCode)
+						{
+							case 8: // backspace
+							case 46: // delete
+								if(window.gfocused) {
+									var old_focused_elm = window.gfocused.elm;
+									window.gfocused.setActive(false);
+									old_focused_elm.parentNode.removeChild(old_focused_elm);
+								}
+								e.preventDefault();
+								break;
+							case 38: // up-arrow
+								if(window.gfocused) {
+									window.gfocused.zoomIn(e.shiftKey ? 1.1 : null);
+									e.preventDefault();
+								}
+								break;
+							case 40: // dn-arrow
+								if(window.gfocused) {
+									window.gfocused.zoomOut(e.shiftKey ? 0.9 : null);
+									e.preventDefault();
+								}
+								break;
+							case 39: // right-arrow
+								if(window.gfocused) {
+									window.gfocused.rotateClockwise(e.shiftKey ? 2 : null);
+									e.preventDefault();
+								}
+								break;
+							case 37: // left-arrow
+								if(window.gfocused) {
+									window.gfocused.rotateCounterClockwise(e.shiftKey ? 2 : null);
+									e.preventDefault();
+								}
+								break;
+							default:
+                break;
+						}
+						break;
+				}
+			},
+			init : function() {
+				// add keyhandler
+				document.documentElement.addEventListener("keypress", this, false);
+				$("image").addEventListener("click", this, false);
+				
+				// layout templates
+				var w = area.width.baseVal.value;
+				var h = area.height.baseVal.value;
+				var xpos = area.x.baseVal.value;
+				var ypos = area.y.baseVal.value;
+				var items = getTemplates();
+				var numitems = items.length;
+				var delta = (w - 10) / Math.ceil(numitems / num_lines);
+				var iw = delta - 10;
+				var ih = (h - 30) / num_lines;
+				var itemstr = "<g xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" transform=\"translate(" + (xpos-10) + " " + ypos + ")\">";
+				var line = 0;
+				var dx = xpos;
+				var dy = 10;
+				var deltay = ih + 10;
+				for(var i = 0; i < numitems; i++, dx+=delta)
+				{ 
+					if(i == Math.ceil(numitems/num_lines)) {
+						dy += deltay;
+						dx = xpos;
+					}
+						
+					var item = items[i];
+					var url = "#" + item.id;
+					itemstr += "<g class=\"pitem tpl\">\n\t<rect x=\"" + dx + "\" y=\"" + dy + "\" width=\"" + iw + "\" height=\"" + ih + "\" rx=\"10\"/>\n";
+					itemstr += "\t<use class=\"item\" xlink:href=\"" + url + "\" transform=\"translate(" + dx + " " + dy + ")\" width=\"" + iw + "\" height=\"" + ih + "\"/>\n</g>";
+				}
+        
+        // add replace photo button
+        itemstr += "<g id=\"replace\" class=\"pitem button\">\n\t<rect x=\"" + dx + "\" y=\"" + dy + "\" width=\"" + (iw/2-5) + "\" height=\"" + ih + "\" rx=\"10\"/>\n";
+        itemstr += "\t<image xlink:href=\"../res/2.0/icons/tango/system-users.png\" width=\"22\" height=\"22\" transform=\"translate(" + (dx+iw/4-11) + " " + (dy+2) + ")\"/>";
+        itemstr += "\t<text y=\"30\" class=\"btext\" transform=\"translate(" + (dx+iw/4) + " " + dy + ")\" >Add photo</text>\n</g>";
+
+        // add save button
+        dx+= iw/2+5;
+        itemstr += "<g id=\"save\" class=\"pitem button\">\n\t<rect x=\"" + dx + "\" y=\"" + dy + "\" width=\"" + (iw/2-5) + "\" height=\"" + ih + "\" rx=\"10\"/>\n";
+        itemstr += "\t<image xlink:href=\"../res/2.0/icons/tango/document-save.png\" width=\"22\" height=\"22\" transform=\"translate(" + (dx+iw/4-11) + " " + (dy+2) + ")\"/>";
+        itemstr += "\t<text y=\"30\" class=\"btext\" transform=\"translate(" + (dx+iw/4) + " " + dy + ")\" >Save</text>\n</g>";
+        
+        itemstr += "</g>";
+				var tree = parser.parseFromString(itemstr, "application/xml");
+				// adoptnode required in webkit			
+				container.appendChild(document.adoptNode(tree.documentElement));
+				var templates = document.getElementsByClassName("pitem tpl");
+				for(var i = 0; i < templates.length; i++)
+				{
+					templates[i].addEventListener("mousedown", this, false);
+				}
+        
+        document.getElementById("save").addEventListener("click", this.save, false);
+        document.getElementById("replace").addEventListener("click", this.replacePhoto, false);
+			},
+			save: function() {
+				if(!saveEnabled) {
+					alert("Add your own photo url first.");
+					return;
+				}
+        var width = 640;
+        var height = 480;
+				var s = new XMLSerializer();
+        var imagelink = document.getElementById("image").href.baseVal;
+        
+        function getURLParams(url) {
+      		var arr = new Array();
+	      	if ( url.indexOf("#") > -1 ) {
+		        var query = url.substr(url.indexOf("#")+1).toLowerCase();
+		        var params = query.split("&");
+		        for ( var i = 0; i < params.length; i++ ) {
+		          var param = params[i].split("=");
+		          arr[param[0]] = decodeURIComponent(param[1]);
+		        }
+		      }
+		      return arr;
+		    }
+
+    		var params = getURLParams(location.hash);
+        if(params["save"] == "standalone")
+        {
+          var image = new Image();
+          image.src = imagelink;        
+          var canvas = document.createElementNS("http://www.w3.org/1999/xhtml", "canvas");
+          canvas.width = image.width;
+          canvas.height = image.height;
+          var ctx = canvas.getContext("2d");
+          ctx.clearRect(0,0,image.width,image.height);
+          ctx.drawImage(image,0,0,image.width,image.height);
+          imagelink = canvas.toDataURL();
+        }
+        var exportstr = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 600" style="background:black">\n';
+				exportstr += '\t<defs>\n\t\t' + s.serializeToString(document.getElementById("templates")) + '</defs>\n';
+        exportstr += '\t<image xlink:href="' + imagelink + '" width="100%" height="100%"/>\n';
+        exportstr += '\t' + s.serializeToString(document.getElementById("decorations")) + '\n';
+        exportstr += '</svg>';
+        exportstr = escape(exportstr);
+        window.open("data:image/svg+xml," + exportstr, "Generated image", "height=" + height + ",width=" + width);
+			},
+      replacePhoto: function() {
+        var url = prompt('Paste your own photo url here:', '');
+        if(url)
+        {
+          document.getElementById("image").href.baseVal = url;
+        	saveEnabled = true;
+        }
+      }
+		};
+	}
+		
+	function drawPos(e)
+	{
+		var uu = toUserUnits(e.target, e);	
+		var str = "clientXY: " + e.clientX + "," + e.clientY + " uu: " + uu.x + "," + uu.y;
+		$('t').textContent = str;
+	}
+	]]></script>
+	</defs>
+	
+	<image id="image" xlink:href="masghulam.png" width="100%" height="100%"/>
+	
+	<rect id="activearea" y="500" width="100%" height="100" fill="none"/>
+	<g id="palette">
+		<rect id="area" rx="10" x="20" y="600" width="760" height="100" fill-opacity="0.8"/>
+	</g>
+  <g id="decorations"/>
+</svg>
